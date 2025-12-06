@@ -113,6 +113,6 @@ This project is released under the **MIT License**, permitting academic and comm
 If this repository is used in academic work, please cite:
 
 ```
-Jumei Zhang, Zhenhua Liu，1and Dongdong Yao： A Lattice-Based Non-Interactive Strong Designated-Verifier Multi-Signature Scheme for Ethereum" GitHub, 2025.
-https://github.com/jmzhang3291-boop/NI-SDVMS
+jm Zhang, zh Liu, dd Y： A Lattice-Based Non-Interactive Strong Designated-Verifier Multi-Signature Scheme for Ethereum" GitHub, 2025.
+https://github.com/jmcryptolab/NI-SDVMS
 ```
