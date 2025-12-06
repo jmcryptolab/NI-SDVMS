@@ -1,28 +1,118 @@
 # NI-SDVMS: Non-Interactive Strong Designated Verifier Multi-Signature Scheme
 
 NI-SDVMS is a **lattice-based non-interactive strong designated-verifier multi-signature scheme**, designed for blockchain authentication and high-security applications.  
-The scheme integrates:
+This implementation integrates:
 
-- **Dilithium** (FIPS 204) — lattice-based digital signature  
-- **Kyber KEM** (FIPS 203) — post-quantum encryption  
-- **MLWE/MSIS hardness assumptions**  
-- **XOF-based deterministic seed generation**  
+- **Dilithium signatures** (FIPS 204)
+- **Kyber KEM** (FIPS 203)
+- **MLWE / MSIS hardness assumptions**
+- **XOF-based deterministic randomness**
 
-This project provides a working C/C++ implementation of NI-SDVMS with key generation, signing, aggregation, designated-verifier decryption, and correctness verification.
+The repository provides a working C/C++ implementation including key generation, signing, aggregation, KEM-based hash protection, designated-verifier decryption, and correctness verification.
 
 ---
 
 ## 🚀 Features
 
-- **Non-interactive** multi-signature (signers do not communicate)
-- **Strong designated verifier** (only the designated party can validate)
-- **Post-quantum security** (MLWE / MSIS)
+- **Non-interactive multi-signature**
+- **Strong designated-verifier validation**
+- **Post-quantum security (MLWE / MSIS)**
 - **Deterministic seed generation**
-- **KEM-protected hash aggregation**
-- **Compatible with blockchain smart contract verification**
-- **Lightweight implementation in portable C/C++**
+- **KEM-protected aggregated signature hash**
+- **Blockchain-friendly implementation**
 
 ---
 
 ## 📂 Project Structure
 
+```
+NI-SDVMS/
+│
+├── src/                  # Main implementation
+│   ├── main.c
+│   ├── d_sign.c
+│   ├── d_sign.h
+│   ├── d_randombytes.c
+│   ├── d_randombytes.h
+│   ├── k_kem.c
+│   ├── k_kem.h
+│
+├── tests/                # Kyber/Dilithium experimental programs
+│   ├── k-d-fixed-final.cpp
+│   ├── k-d-no-openssl.cpp
+│   └── k-d-timed-fixed.cpp
+│
+├── Makefile              # One-command build (recommended)
+├── LICENSE
+└── README.md
+```
+
+---
+
+## 🛠 Build Instructions
+
+### Linux / MacOS
+
+```bash
+make
+./ni_sdvms
+```
+
+### Windows (MinGW)
+
+```bash
+make
+ni_sdvms.exe
+```
+
+Requirements:
+
+- GCC / Clang / MSVC
+- OpenSSL (`libssl` + `libcrypto`)
+
+---
+
+## ▶️ Running the Demo
+
+The program demonstrates all major stages of NI-SDVMS:
+
+1. Generate Dilithium keypairs  
+2. Signers independently sign the same message  
+3. Aggregate signatures  
+4. Compute SHA-256 hash  
+5. Encrypt the hash using Kyber KEM  
+6. Decrypt using designated verifier secret key  
+7. Verify correctness  
+
+Output includes hex dumps of public keys, ciphertexts, aggregated data, and decrypted results.
+
+---
+
+## 🔐 Security Guarantees
+
+NI-SDVMS security relies on:
+
+- **Module-LWE** (public-key hardness)
+- **Module-SIS** (signature unforgeability)
+- **Discrete Gaussian sampling**
+- **Hash-based Fiat–Shamir transformation**
+- **IND-CCA secure KEM protection**
+
+This combination provides strong post-quantum security.
+
+---
+
+## 📜 License
+
+This project is released under the **MIT License**, permitting academic and commercial use.
+
+---
+
+## ✨ Citation
+
+If this repository is used in academic work, please cite:
+
+```
+Zhang, Jumei. "NI-SDVMS: A Lattice-Based Non-Interactive Strong Designated-Verifier Multi-Signature Scheme." GitHub, 2025.
+https://github.com/jmzhang3291-boop/NI-SDVMS
+```
