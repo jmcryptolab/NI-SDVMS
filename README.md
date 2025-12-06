@@ -1,19 +1,28 @@
-# NI-SDVMS
-NI-SDVMS is a lattice-based multi-signature scheme designed for blockchain applications, offering quantum-resilient security through Kyber encryption and Dilithium signatures.
-# NI-SDVMS Blockchain Project
+# NI-SDVMS: Non-Interactive Strong Designated Verifier Multi-Signature Scheme
 
-## Overview
-This repository contains the implementation of the NI-SDVMS multi-signature scheme deployed on the Ethereum blockchain using the Solidity programming language. The scheme ensures post-quantum security and non-interactive aggregation of signatures in decentralized applications.
+NI-SDVMS is a **lattice-based non-interactive strong designated-verifier multi-signature scheme**, designed for blockchain authentication and high-security applications.  
+The scheme integrates:
 
-## Features
-- **Signer Registration**: Allows signers to register on the blockchain.
-- **Signature Submission**: Enables signers to submit their signatures for verification.
-- **Designated Verifier Validation**: Ensures only the designated verifier can validate the signature.
-- **Post-Quantum Security**: Utilizes lattice-based encryption (Kyber) and signatures (Dilithium) to provide quantum-resilient security.
+- **Dilithium** (FIPS 204) — lattice-based digital signature  
+- **Kyber KEM** (FIPS 203) — post-quantum encryption  
+- **MLWE/MSIS hardness assumptions**  
+- **XOF-based deterministic seed generation**  
 
-## Installation and Usage
+This project provides a working C/C++ implementation of NI-SDVMS with key generation, signing, aggregation, designated-verifier decryption, and correctness verification.
 
-### Prerequisites
-- **Remix IDE** for deploying the smart contract.
-- **MetaMask** browser extension for interacting with Ethereum.
-- **Ether (ETH)** for gas fees on Ethereum network (you can use testnets like Rinkeby for testing).
+---
+
+## 🚀 Features
+
+- **Non-interactive** multi-signature (signers do not communicate)
+- **Strong designated verifier** (only the designated party can validate)
+- **Post-quantum security** (MLWE / MSIS)
+- **Deterministic seed generation**
+- **KEM-protected hash aggregation**
+- **Compatible with blockchain smart contract verification**
+- **Lightweight implementation in portable C/C++**
+
+---
+
+## 📂 Project Structure
+
