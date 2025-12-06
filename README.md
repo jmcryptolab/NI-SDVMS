@@ -18,7 +18,6 @@ The repository provides a working C/C++ implementation including key generation,
 - **Strong designated-verifier validation**
 - **Post-quantum security (MLWE / MSIS)**
 - **Deterministic seed generation**
-- **KEM-protected aggregated signature hash**
 - **Blockchain-friendly implementation**
 
 ---
@@ -69,22 +68,6 @@ Requirements:
 
 - GCC / Clang / MSVC
 - OpenSSL (`libssl` + `libcrypto`)
-
----
-
-## ▶️ Running the Demo
-
-The program demonstrates all major stages of NI-SDVMS:
-
-1. Generate Dilithium keypairs  
-2. Signers independently sign the same message  
-3. Aggregate signatures  
-4. Compute SHA-256 hash  
-5. Encrypt the hash using Kyber KEM  
-6. Decrypt using designated verifier secret key  
-7. Verify correctness  
-
-Output includes hex dumps of public keys, ciphertexts, aggregated data, and decrypted results.
 
 ---
 
